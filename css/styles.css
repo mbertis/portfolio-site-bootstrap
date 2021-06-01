@@ -6106,7 +6106,17 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #1abc9c !important;
+  background-image: url("../assets/img/mads-schmidt-rasmussen-xfngap_DToE-unsplash.jpg");
+  background-color: #6610f2;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-about {
+  background-image: url("../assets/img/mads-schmidt-rasmussen-xfngap_DToE-unsplash.jpg");
+  background-color: #6610f2;
+  background-position: center bottom;
+  background-size: 130%;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
