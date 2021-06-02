@@ -6523,16 +6523,15 @@ a.close.disabled {
 
 .bg-primary {
   background-image: url("../assets/img/mads-schmidt-rasmussen-xfngap_DToE-unsplash.jpg");
-  background-color: #6610f2;
+  background-color: #2d3e4f;
   background-position: center;
   background-size: cover;
 }
 
 .bg-about {
   background-image: url("../assets/img/mads-schmidt-rasmussen-xfngap_DToE-unsplash.jpg");
-  background-color: #6610f2;
+  background-color: #2d3e4f;
   background-position: center bottom;
-  background-size: 130%;
 }
 
 a.bg-primary:hover,
