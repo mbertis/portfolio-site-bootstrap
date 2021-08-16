@@ -16,6 +16,37 @@
       src="https://kit.fontawesome.com/d334e53cbc.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("user_t09SeeWp7NGIFD65NJ5Gs");
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = (Math.random() * 100000) | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm("service_nndun3d", "contact_form", this).then(
+              function () {
+                alert("Message sent successfully!");
+                console.log("SUCCESS!");
+              },
+              function (error) {
+                alert("Error sending message. Please try again later.");
+                console.log("FAILED...", error);
+              }
+            );
+          });
+      };
+    </script>
     <!-- Google fonts-->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -37,10 +68,9 @@
       id="mainNav"
     >
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"
-          >
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
           <i class="fab fa-pagelines"></i>MB
-      </a>
+        </a>
         <button
           class="
             navbar-toggler navbar-toggler-right
@@ -377,8 +407,8 @@
               chemistry have given me an extreme eye for detail, a deep
               understanding of the value of excellent teamwork, and an
               appreciation of writing clear and organized procedures and code. I
-              am ready to bring my skills to a team focused on collaboration and the
-              creation of dynamic front-end applications.
+              am ready to bring my skills to a team focused on collaboration and
+              the creation of dynamic front-end applications.
             </p>
           </div>
           <div class="col-lg-4 mr-auto">
@@ -430,13 +460,64 @@
           <div class="divider-custom-line"></div>
         </div>
         <div class="text-center mt-4">
-          <a
-            class="btn btn-xl btn-outline-dark"
-            href="mailto:madisonbertis@gmail.com?subject=Hello%2C%20Madison!"
-          >
-            <i class="fas fa-envelope-open-text"></i>
-            Let's Chat
-          </a>
+          <!-- Contact Form -->
+          <form id="contactForm">
+            <div class="form-floating mb-3">
+              <input type="hidden" name="contact_number" />
+
+              <input
+                class="form-control"
+                name="user_name"
+                id="name"
+                type="text"
+                placeholder="Enter your name..."
+                data-sb-validations="required"
+              />
+              <div class="invalid-feedback" data-sb-feedback="name:required">
+                A name is required.
+              </div>
+            </div>
+            <!-- Email address input-->
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                name="user_email"
+                id="email"
+                type="email"
+                placeholder="Enter your email..."
+                data-sb-validations="required,email"
+              />
+              <div class="invalid-feedback" data-sb-feedback="email:required">
+                An email is required.
+              </div>
+              <div class="invalid-feedback" data-sb-feedback="email:email">
+                Email is not valid.
+              </div>
+            </div>
+            <!-- Message input-->
+            <div class="form-floating mb-3">
+              <textarea
+                class="form-control"
+                name="message"
+                id="message"
+                type="text"
+                placeholder="Enter your message here..."
+                style="height: 10rem"
+                data-sb-validations="required"
+              ></textarea>
+              <div class="invalid-feedback" data-sb-feedback="message:required">
+                A message is required.
+              </div>
+            </div>
+            <!-- Submit Button-->
+            <button
+              class="btn btn-primary btn-xl disabled"
+              id="submitButton"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </section>
